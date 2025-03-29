@@ -16,11 +16,13 @@ class LoginForm extends StatelessWidget {
           height: 8,
         ),
         CustomTextFormField(
+          obscureText: false,
           hintText: 'البريد الإلكتروني',
           inputType: TextInputType.emailAddress,
         ),
         SizedBox(height: 20),
         CustomTextFormField(
+          obscureText: true,
           hintText: 'كلمة المرور',
           // inputType: TextInputType.visiblePassword,
           iconButton: IconButton(
@@ -39,7 +41,7 @@ class LoginForm extends StatelessWidget {
         SizedBox(height: 20),
         CustomButton(
           onPressed: () {},
-          title: 'تسجيل دخول',
+          title: 'تسجيل دخول', isLoading: false,
         ),
       ],
     );

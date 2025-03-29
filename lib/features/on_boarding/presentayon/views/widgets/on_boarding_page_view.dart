@@ -59,7 +59,7 @@ class _OnBoardingPageViewState extends State<OnBoardingPageView> {
           button: CustomButton(title: 'تخط',onPressed: () {
             Prefs.setBool(kIsOnBoardingSeen, true);
         GoRouter.of(context).pushReplacement(AppRoutes.kLoginview);
-          },),
+          }, isLoading: false,),
           visibleButton: false,
         ),
         PageViewItem(
@@ -67,7 +67,7 @@ class _OnBoardingPageViewState extends State<OnBoardingPageView> {
           button: CustomButton(title: 'ابدأ الان',onPressed: () {
             Prefs.setBool(kIsOnBoardingSeen, true);
         GoRouter.of(context).pushReplacement(AppRoutes.kLoginview);
-          },),
+          }, isLoading: false,),
           title: Row(
             children: [
               Text(
