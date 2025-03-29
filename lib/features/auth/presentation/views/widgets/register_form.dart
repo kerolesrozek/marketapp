@@ -78,21 +78,12 @@ class _RegisterFormState extends State<RegisterForm> {
                   // inputType: TextInputType.visiblePassword,
                 ),
                 SizedBox(height: 20),
-                CustomTextFormField(
-                  obscureText: true,
-
-                  autovalidateMode: autovalidateMode,
-                  controller: passwordController,
-                  onSaved: (p0) {
-                    password = p0!;
-                  },
-                  hintText: 'كلمة المرور',
-                  // inputType: TextInputType.visiblePassword,
-                  iconButton: IconButton(
-                    onPressed: () {},
-                    icon: Icon(Icons.visibility),
-                  ),
-                ),
+                CusttomPasswordTextField(
+                    onSaved: (p0) {
+                      password = p0!;
+                    },
+                    autovalidateMode: autovalidateMode,
+                    passwordController: passwordController),
                 SizedBox(height: 20),
                 CheckBoxWidget(),
                 SizedBox(height: 20),
@@ -128,5 +119,54 @@ class _RegisterFormState extends State<RegisterForm> {
         );
       },
     );
+  }
+}
+
+class CusttomPasswordTextField extends StatefulWidget {
+  const CusttomPasswordTextField({
+    super.key,
+    required this.autovalidateMode,
+    required this.passwordController,
+    this.onSaved,
+  });
+
+  final AutovalidateMode autovalidateMode;
+  final TextEditingController passwordController;
+  final Function(String?)? onSaved;
+
+  @override
+  State<CusttomPasswordTextField> createState() =>
+      _CusttomPasswordTextFieldState();
+}
+
+bool isVisible = true;
+
+class _CusttomPasswordTextFieldState extends State<CusttomPasswordTextField> {
+  @override
+  Widget build(BuildContext context) {
+    return CustomTextFormField(
+        obscureText: isVisible,
+        autovalidateMode: widget.autovalidateMode,
+        controller: widget.passwordController,
+        onSaved: widget.onSaved,
+        hintText: 'كلمة المرور',
+        // inputType: TextInputType.visiblePassword,
+        iconButton: isVisible
+            ? IconButton(
+                onPressed: () {
+                  setState(() {
+                    isVisible = !isVisible;
+                  });
+                },
+                icon: Icon(Icons.visibility_off),
+              )
+            : IconButton(
+                onPressed: () {
+                  setState(() {
+                    isVisible = !isVisible;
+                  });
+                },
+                icon: Icon(Icons.visibility),
+              ));
   }
 }
