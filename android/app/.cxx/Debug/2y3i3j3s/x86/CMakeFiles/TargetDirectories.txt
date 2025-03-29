@@ -1,0 +1,2 @@
+C:/Users/EL FADY/Desktop/cv projects/fruitesapp/android/app/.cxx/Debug/2y3i3j3s/x86/CMakeFiles/edit_cache.dir
+C:/Users/EL FADY/Desktop/cv projects/fruitesapp/android/app/.cxx/Debug/2y3i3j3s/x86/CMakeFiles/rebuild_cache.dir
