@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:fruitesapp/features/auth/data/data_sources/auth_remote_data_source.dart';
+import 'package:fruitesapp/core/services/get_it_sevice.dart';
 import 'package:fruitesapp/features/auth/data/repos_imple/auth_repos_imple.dart';
 import 'package:fruitesapp/features/auth/domain/usecases/add_user_usecase.dart';
 import 'package:fruitesapp/features/auth/domain/usecases/register_with_emailandpassword_usecase.dart';
@@ -25,14 +25,11 @@ class RegisterViewBody extends StatelessWidget {
                 BlocProvider(
                   create: (context) => RegisterEmailandpasswordCubit(
                       RegisterWithEmailandpasswordUsecase(
-                          authRepos: AuthReposImple(
-                              authRemoteDataSource:
-                                  AuthRemoteDataSourceImpl()))),
+                          authRepos: getIt.get<AuthReposImple>())),
                 ),
                 BlocProvider(
-                  create: (context) => AddUserCubit(AddUserUsecase(
-                      authRepos: AuthReposImple(
-                          authRemoteDataSource: AuthRemoteDataSourceImpl()))),
+                  create: (context) => AddUserCubit(
+                      AddUserUsecase(authRepos: getIt.get<AuthReposImple>())),
                 ),
               ],
               child: RegisterForm(),
