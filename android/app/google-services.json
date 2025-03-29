@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "222820582163",
+    "project_id": "market-krh",
+    "storage_bucket": "market-krh.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:222820582163:android:32ea87e914fc1ecc0bd0e6",
+        "android_client_info": {
+          "package_name": "com.example.fruitesapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBePOOLsYJen4CtM5nbkhVGu6JJHzy8GRg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
