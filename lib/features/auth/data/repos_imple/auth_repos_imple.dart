@@ -18,16 +18,17 @@ class AuthReposImple extends AuthRepos {
       return right(await authRemoteDataSource.registerWithEmailAndPassword(
           userEntity: userEntity));
     } on FirebaseAuthException catch (e) {
+      log('error in auth repos.registerWithEmailAndPassword ${e.toString()}');
       if (e.code == 'weak-password') {
-        return left(
-            Failures(errorMessage: 'The password provided is too weak.'));
+        return left(Failures(errorMessage: ' كلمة المرور ضعيفة جدا'));
       } else if (e.code == 'email-already-in-use') {
-        return left(Failures(
-            errorMessage: 'The account already exists for that email.'));
+        return left(
+            Failures(errorMessage: 'هذا البريد الالكتروني مستخدم بالفعل'));
       } else {
         return left(Failures(errorMessage: e.code));
       }
     } catch (e) {
+      log('error in auth repos.registerWithEmailAndPassword ${e.toString()}');
       return left(Failures(errorMessage: e.toString()));
     }
   }
@@ -38,7 +39,7 @@ class AuthReposImple extends AuthRepos {
     try {
       return right(await authRemoteDataSource.addUser(userEntity: userEntity));
     } catch (e) {
-      log(e.toString());
+      log('error in auth repos.addUser ${e.toString()}');
       return left(Failures(errorMessage: e.toString()));
     }
   }

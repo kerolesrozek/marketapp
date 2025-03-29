@@ -5,6 +5,7 @@ import 'package:fruitesapp/features/auth/presentation/add_user_cubit/add_user_cu
 import 'package:fruitesapp/features/auth/presentation/register_emailpassword_cubit/register_emailandpassword_cubit.dart';
 import 'package:fruitesapp/features/auth/presentation/views/widgets/cheak_box_widget.dart';
 import 'package:fruitesapp/features/auth/presentation/views/widgets/custom_text_form_field.dart';
+import 'package:fruitesapp/features/auth/presentation/views/widgets/custtom_password_textfield.dart';
 import 'package:fruitesapp/features/on_boarding/presentayon/views/widgets/custom_button.dart';
 
 class RegisterForm extends StatefulWidget {
@@ -23,6 +24,7 @@ class _RegisterFormState extends State<RegisterForm> {
   late String name;
   late String email;
   late String password;
+  bool isTermsCheck = false;
   @override
   void dispose() {
     nameController.dispose();
@@ -85,24 +87,34 @@ class _RegisterFormState extends State<RegisterForm> {
                     autovalidateMode: autovalidateMode,
                     passwordController: passwordController),
                 SizedBox(height: 20),
-                CheckBoxWidget(),
+                CheckBoxWidget(
+                  onChanged: (bool value) {
+                    isTermsCheck = value;
+                  },
+                ),
                 SizedBox(height: 20),
                 CustomButton(
                   onPressed: () {
                     if (formKey.currentState!.validate()) {
                       formKey.currentState!.save();
-                      BlocProvider.of<RegisterEmailandpasswordCubit>(context)
-                          .registerWithEmailAndPassword(
-                              userEntity: UserEntity(
-                                  name: name,
-                                  email: email,
-                                  password: password));
+                      if (isTermsCheck == true) {
+                        BlocProvider.of<RegisterEmailandpasswordCubit>(context)
+                            .registerWithEmailAndPassword(
+                                userEntity: UserEntity(
+                                    name: name,
+                                    email: email,
+                                    password: password));
+                      } else {
+                        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                            content:
+                                Text('يرجى الموافقة على الشروط والاحكام')));
+                      }
                       BlocProvider.of<AddUserCubit>(context).addUser(
                           userEntity: UserEntity(
                               name: name, email: email, password: password));
-                      nameController.clear();
-                      emailController.clear();
-                      passwordController.clear();
+                      // nameController.clear();
+                      // emailController.clear();
+                      // passwordController.clear();
                     } else {
                       autovalidateMode = AutovalidateMode.always;
                       setState(() {});
@@ -119,54 +131,5 @@ class _RegisterFormState extends State<RegisterForm> {
         );
       },
     );
-  }
-}
-
-class CusttomPasswordTextField extends StatefulWidget {
-  const CusttomPasswordTextField({
-    super.key,
-    required this.autovalidateMode,
-    required this.passwordController,
-    this.onSaved,
-  });
-
-  final AutovalidateMode autovalidateMode;
-  final TextEditingController passwordController;
-  final Function(String?)? onSaved;
-
-  @override
-  State<CusttomPasswordTextField> createState() =>
-      _CusttomPasswordTextFieldState();
-}
-
-bool isVisible = true;
-
-class _CusttomPasswordTextFieldState extends State<CusttomPasswordTextField> {
-  @override
-  Widget build(BuildContext context) {
-    return CustomTextFormField(
-        obscureText: isVisible,
-        autovalidateMode: widget.autovalidateMode,
-        controller: widget.passwordController,
-        onSaved: widget.onSaved,
-        hintText: 'كلمة المرور',
-        // inputType: TextInputType.visiblePassword,
-        iconButton: isVisible
-            ? IconButton(
-                onPressed: () {
-                  setState(() {
-                    isVisible = !isVisible;
-                  });
-                },
-                icon: Icon(Icons.visibility_off),
-              )
-            : IconButton(
-                onPressed: () {
-                  setState(() {
-                    isVisible = !isVisible;
-                  });
-                },
-                icon: Icon(Icons.visibility),
-              ));
   }
 }
