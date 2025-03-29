@@ -11,7 +11,10 @@ class AddUserCubit extends Cubit<AddUserState> {
   Future<void> addUser({required UserEntity userEntity}) async {
     emit(AddUserLoading());
     var result = await addUserUsecase.call(userEntity: userEntity);
-    result.fold((l) => emit(AddUserFailure(errorMessage: l.errorMessage)),
-        (r) => emit(AddUserSuccess()));
+    result.fold((fail) {
+      emit(AddUserFailure(errorMessage: fail.errorMessage));
+    }, (succes) {
+      emit(AddUserSuccess());
+    });
   }
 }

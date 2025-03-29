@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fruitesapp/core/failures.dart';
@@ -36,6 +38,7 @@ class AuthReposImple extends AuthRepos {
     try {
       return right(await authRemoteDataSource.addUser(userEntity: userEntity));
     } catch (e) {
+      log(e.toString());
       return left(Failures(errorMessage: e.toString()));
     }
   }
