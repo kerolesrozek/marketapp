@@ -29,4 +29,14 @@ class AuthReposImple extends AuthRepos {
       return left(Failures(errorMessage: e.toString()));
     }
   }
+
+  @override
+  Future<Either<Failures, void>> addUser(
+      {required UserEntity userEntity}) async {
+    try {
+      return right(await authRemoteDataSource.addUser(userEntity: userEntity));
+    } catch (e) {
+      return left(Failures(errorMessage: e.toString()));
+    }
+  }
 }
