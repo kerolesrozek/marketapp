@@ -4,8 +4,8 @@ import 'package:fruitesapp/core/services/get_it_sevice.dart';
 import 'package:fruitesapp/features/auth/data/repos_imple/auth_repos_imple.dart';
 import 'package:fruitesapp/features/auth/domain/usecases/add_user_usecase.dart';
 import 'package:fruitesapp/features/auth/domain/usecases/register_with_emailandpassword_usecase.dart';
-import 'package:fruitesapp/features/auth/presentation/add_user_cubit/add_user_cubit.dart';
-import 'package:fruitesapp/features/auth/presentation/register_emailpassword_cubit/register_emailandpassword_cubit.dart';
+import 'package:fruitesapp/features/auth/presentation/cubits/add_user_cubit/add_user_cubit.dart';
+import 'package:fruitesapp/features/auth/presentation/cubits/register_emailpassword_cubit/register_emailandpassword_cubit.dart';
 
 import 'package:fruitesapp/features/auth/presentation/views/widgets/have_account_widget.dart';
 import 'package:fruitesapp/features/auth/presentation/views/widgets/register_form.dart';

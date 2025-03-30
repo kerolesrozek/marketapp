@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruitesapp/features/auth/domain/entities/user_entity.dart';
-import 'package:fruitesapp/features/auth/presentation/add_user_cubit/add_user_cubit.dart';
-import 'package:fruitesapp/features/auth/presentation/register_emailpassword_cubit/register_emailandpassword_cubit.dart';
+import 'package:fruitesapp/features/auth/presentation/cubits/add_user_cubit/add_user_cubit.dart';
+import 'package:fruitesapp/features/auth/presentation/cubits/register_emailpassword_cubit/register_emailandpassword_cubit.dart';
 import 'package:fruitesapp/features/auth/presentation/views/widgets/cheak_box_widget.dart';
 import 'package:fruitesapp/features/auth/presentation/views/widgets/custom_text_form_field.dart';
 import 'package:fruitesapp/features/auth/presentation/views/widgets/custtom_password_textfield.dart';
