@@ -65,4 +65,14 @@ class AuthReposImple extends AuthRepos {
       return left(Failures(errorMessage: e.toString()));
     }
   }
+
+  @override
+  Future<Either<Failures, UserCredential>> loginWithGoogle() async {
+    try {
+      return right(await authRemoteDataSource.loginWithGoogle());
+    } catch (e) {
+      log('error in auth reposImple.loginWithGoogle ${e.toString()}');
+      return left(Failures(errorMessage: e.toString()));
+    }
+  }
 }

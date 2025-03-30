@@ -104,6 +104,9 @@ class _RegisterFormState extends State<RegisterForm> {
                                     name: name,
                                     email: email,
                                     password: password));
+                        nameController.clear();
+                        emailController.clear();
+                        passwordController.clear();
                       } else {
                         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                             content:

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fruitesapp/features/auth/presentation/cubits/login_emailpassword_cubit/login_emailpassword_cubit.dart';
 import 'package:fruitesapp/features/auth/presentation/views/widgets/login_social_widget.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -29,6 +31,9 @@ class LoginWithSocialsPartWidget extends StatelessWidget {
           height: 16,
         ),
         LoginSocialWidget(
+          onTap:(){
+            BlocProvider.of<LoginEmailpasswordCubit>(context).loginWithGoogleMethod();
+          } ,
           socialName: 'تسجيل بواسطة جوجل',
           picture: 'lib/assets/images/google Icon.svg',
         ),
