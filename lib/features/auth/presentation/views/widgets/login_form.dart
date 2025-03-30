@@ -1,49 +1,78 @@
-
 import 'package:flutter/material.dart';
 import 'package:fruitesapp/features/auth/presentation/views/widgets/custom_text_form_field.dart';
+import 'package:fruitesapp/features/auth/presentation/views/widgets/custtom_password_textfield.dart';
 import 'package:fruitesapp/features/on_boarding/presentayon/views/widgets/custom_button.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class LoginForm extends StatelessWidget {
+class LoginForm extends StatefulWidget {
   const LoginForm({super.key});
 
   @override
+  State<LoginForm> createState() => _LoginFormState();
+}
+
+class _LoginFormState extends State<LoginForm> {
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+  GlobalKey<FormState> formKey = GlobalKey<FormState>();
+  AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
+  late String email;
+  late String password;
+  @override
+  void dispose() {
+    emailController.dispose();
+    passwordController.dispose();
+
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.end,
-      children: [
-        SizedBox(
-          height: 8,
-        ),
-        CustomTextFormField(
-          obscureText: false,
-          hintText: 'البريد الإلكتروني',
-          inputType: TextInputType.emailAddress,
-        ),
-        SizedBox(height: 20),
-        CustomTextFormField(
-          obscureText: true,
-          hintText: 'كلمة المرور',
-          // inputType: TextInputType.visiblePassword,
-          iconButton: IconButton(
-            onPressed: () {},
-            icon: Icon(Icons.visibility),
+    return Form(
+      key: formKey,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.end,
+        children: [
+          SizedBox(
+            height: 8,
           ),
-        ),
-        SizedBox(height: 20),
-        Text(
-          'نسيت كلمة المرور؟',
-          style: GoogleFonts.cairo(
-              fontSize: 13,
-              fontWeight: FontWeight.w600,
-              color: Color(0xff2D9F5D)),
-        ),
-        SizedBox(height: 20),
-        CustomButton(
-          onPressed: () {},
-          title: 'تسجيل دخول', isLoading: false,
-        ),
-      ],
+          CustomTextFormField(
+            autovalidateMode: autovalidateMode,
+            controller: emailController,
+            onSaved: (p0) {
+              email = p0!;
+            },
+            obscureText: false,
+            hintText: 'البريد الإلكتروني',
+            inputType: TextInputType.emailAddress,
+          ),
+          SizedBox(height: 20),
+          CusttomPasswordTextField(
+              onSaved: (p0) {
+                password = p0!;
+              },
+              autovalidateMode: autovalidateMode,
+              passwordController: passwordController),
+          SizedBox(height: 20),
+          Text(
+            'نسيت كلمة المرور؟',
+            style: GoogleFonts.cairo(
+                fontSize: 13,
+                fontWeight: FontWeight.w600,
+                color: Color(0xff2D9F5D)),
+          ),
+          SizedBox(height: 20),
+          CustomButton(
+            onPressed: () {
+              if (formKey.currentState!.validate()) {
+                formKey.currentState!.save();
+              }
+            },
+            title: 'تسجيل دخول',
+            isLoading: false,
+          ),
+        ],
+      ),
     );
   }
 }
