@@ -16,7 +16,7 @@ class RegisterViewBodyBuilder extends StatelessWidget {
       listener: (context, state) {
         if (state is RegisterEmailandpasswordSuccess) {
           ScaffoldMessenger.of(context)
-              .showSnackBar(SnackBar(content: Text('Successs')));
+              .showSnackBar(SnackBar(content: Text('تم انشاء الحساب بنجاح')));
         }
         if (state is RegisterEmailandpasswordFailure) {
           ScaffoldMessenger.of(context)

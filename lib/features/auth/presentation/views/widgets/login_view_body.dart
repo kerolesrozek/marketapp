@@ -4,7 +4,8 @@ import 'package:fruitesapp/features/auth/presentation/views/widgets/login_form.d
 import 'package:fruitesapp/features/auth/presentation/views/widgets/login_with_social_part_widget.dart';
 
 class LoginViewBody extends StatelessWidget {
-  const LoginViewBody({super.key});
+  const LoginViewBody({super.key, required this.isLoading});
+  final bool isLoading;
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +15,7 @@ class LoginViewBody extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
-            LoginForm(),
+            LoginForm(isLoading: isLoading,),
             SizedBox(height: 20),
             DontHaveAccountWidget(),
             SizedBox(height: 16),
