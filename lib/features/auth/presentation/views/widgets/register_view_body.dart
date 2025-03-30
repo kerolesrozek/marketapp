@@ -1,18 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:fruitesapp/core/services/get_it_sevice.dart';
-import 'package:fruitesapp/features/auth/data/repos_imple/auth_repos_imple.dart';
-import 'package:fruitesapp/features/auth/domain/usecases/add_user_usecase.dart';
-import 'package:fruitesapp/features/auth/domain/usecases/register_with_emailandpassword_usecase.dart';
-import 'package:fruitesapp/features/auth/presentation/cubits/add_user_cubit/add_user_cubit.dart';
-import 'package:fruitesapp/features/auth/presentation/cubits/register_emailpassword_cubit/register_emailandpassword_cubit.dart';
 
 import 'package:fruitesapp/features/auth/presentation/views/widgets/have_account_widget.dart';
 import 'package:fruitesapp/features/auth/presentation/views/widgets/register_form.dart';
 
 class RegisterViewBody extends StatelessWidget {
-  const RegisterViewBody({super.key});
-
+  const RegisterViewBody({super.key, required this.isLoading});
+  final bool isLoading;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -20,19 +13,8 @@ class RegisterViewBody extends StatelessWidget {
       child: SingleChildScrollView(
         child: Column(
           children: [
-            MultiBlocProvider(
-              providers: [
-                BlocProvider(
-                  create: (context) => RegisterEmailandpasswordCubit(
-                      RegisterWithEmailandpasswordUsecase(
-                          authRepos: getIt.get<AuthReposImple>())),
-                ),
-                BlocProvider(
-                  create: (context) => AddUserCubit(
-                      AddUserUsecase(authRepos: getIt.get<AuthReposImple>())),
-                ),
-              ],
-              child: RegisterForm(),
+            RegisterForm(
+              isLoading: isLoading,
             ),
             HaveAccountWidget(),
           ],

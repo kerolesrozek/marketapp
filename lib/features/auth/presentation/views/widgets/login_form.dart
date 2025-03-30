@@ -100,7 +100,6 @@ class _LoginFormState extends State<LoginForm> {
                     }
                   },
                   title: 'تسجيل دخول',
-                  isLoading: state is LoginEmailpasswordLoading ? true : false,
                 ),
               ],
             ),
