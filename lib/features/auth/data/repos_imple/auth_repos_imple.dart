@@ -43,4 +43,26 @@ class AuthReposImple extends AuthRepos {
       return left(Failures(errorMessage: e.toString()));
     }
   }
+
+  @override
+  Future<Either<Failures, void>> loginWithEmailAndPassword(
+      {required UserEntity userEntity}) async {
+    try {
+      return right(await authRemoteDataSource.loginWithEmailAndPassword(
+          userEntity: userEntity));
+    } on FirebaseAuthException catch (e) {
+      log('error in auth reposImple.loginWithEmailAndPassword ${e.toString()}');
+      if (e.code == 'user-not-found') {
+        return left(
+            Failures(errorMessage: 'لا يوجد مستخدم بهذا البريد الالكتروني'));
+      } else if (e.code == 'wrong-password') {
+        return left(Failures(errorMessage: 'كلمة المرور غير صحيحة'));
+      } else {
+        return left(Failures(errorMessage: e.code));
+      }
+    } catch (e) {
+      log('error in auth reposImple.loginWithEmailAndPassword ${e.toString()}');
+      return left(Failures(errorMessage: e.toString()));
+    }
+  }
 }
