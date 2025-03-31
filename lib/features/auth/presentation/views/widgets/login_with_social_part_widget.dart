@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruitesapp/features/auth/presentation/cubits/login_emailpassword_cubit/login_emailpassword_cubit.dart';
@@ -31,23 +33,32 @@ class LoginWithSocialsPartWidget extends StatelessWidget {
           height: 16,
         ),
         LoginSocialWidget(
-          onTap:(){
-            BlocProvider.of<LoginEmailpasswordCubit>(context).loginWithGoogleMethod();
-          } ,
+          onTap: () {
+            BlocProvider.of<LoginCubit>(context).loginWithGoogleMethod();
+          },
           socialName: 'تسجيل بواسطة جوجل',
           picture: 'lib/assets/images/google Icon.svg',
         ),
         SizedBox(
           height: 16,
         ),
+        Platform.isIOS
+            ? Column(
+                children: [
+                  LoginSocialWidget(
+                    socialName: 'تسجيل بواسطة أبل',
+                    picture: 'lib/assets/images/apple_icon.svg',
+                  ),
+                  SizedBox(
+                    height: 16,
+                  ),
+                ],
+              )
+            : SizedBox(),
         LoginSocialWidget(
-          socialName: 'تسجيل بواسطة أبل',
-          picture: 'lib/assets/images/apple_icon.svg',
-        ),
-        SizedBox(
-          height: 16,
-        ),
-        LoginSocialWidget(
+          onTap: () {
+            BlocProvider.of<LoginCubit>(context).loginwithfacebook();
+          },
           socialName: 'تسجيل بواسطة فيسبوك',
           picture: 'lib/assets/images/facebook_icon.svg',
         ),

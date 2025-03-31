@@ -75,4 +75,14 @@ class AuthReposImple extends AuthRepos {
       return left(Failures(errorMessage: e.toString()));
     }
   }
+
+  @override
+  Future<Either<Failures, UserCredential>> loginWithFacebook() async {
+    try {
+      return right(await authRemoteDataSource.loginWithFacebook());
+    } catch (e) {
+      log('error in auth reposImple.loginWithFacebook ${e.toString()}');
+      return left(Failures(errorMessage: e.toString()));
+    }
+  }
 }

@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruitesapp/features/auth/domain/entities/user_entity.dart';
@@ -73,7 +72,7 @@ class _LoginFormState extends State<LoginForm> {
               onPressed: () {
                 if (formKey.currentState!.validate()) {
                   formKey.currentState!.save();
-                  BlocProvider.of<LoginEmailpasswordCubit>(context)
+                  BlocProvider.of<LoginCubit>(context)
                       .loginWithEmailAndPassword(
                           userEntity: UserEntity(
                               name: 'name', email: email, password: password));

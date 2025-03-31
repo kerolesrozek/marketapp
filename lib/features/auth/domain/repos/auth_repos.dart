@@ -10,4 +10,6 @@ abstract class AuthRepos {
   Future<Either<Failures, void>> loginWithEmailAndPassword(
       {required UserEntity userEntity});
       Future <Either<Failures, UserCredential>> loginWithGoogle();
+
+      Future<Either<Failures,UserCredential>>loginWithFacebook();
 }
