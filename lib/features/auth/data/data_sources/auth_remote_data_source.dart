@@ -20,6 +20,7 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
       email: userEntity.email,
       password: userEntity.password,
     );
+    // await addUser(userEntity: userEntity);
   }
 
   @override
@@ -28,6 +29,7 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
     return users.add({
       'name': userEntity.name,
       'email': userEntity.email,
+      'userId': FirebaseAuth.instance.currentUser!.uid
     });
   }
 

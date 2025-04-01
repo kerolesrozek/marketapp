@@ -75,7 +75,10 @@ class _LoginFormState extends State<LoginForm> {
                   BlocProvider.of<LoginCubit>(context)
                       .loginWithEmailAndPassword(
                           userEntity: UserEntity(
-                              name: 'name', email: email, password: password));
+                    email: email,
+                    password: password,
+                    name: '',
+                  ));
                   emailController.clear();
                   passwordController.clear();
                 } else {

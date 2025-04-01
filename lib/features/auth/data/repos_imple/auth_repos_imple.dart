@@ -15,9 +15,11 @@ class AuthReposImple extends AuthRepos {
   Future<Either<Failures, void>> registerWithEmailAndPassword(
       {required UserEntity userEntity}) async {
     try {
-      return right(await authRemoteDataSource.registerWithEmailAndPassword(
-          userEntity: userEntity));
+      return right(await authRemoteDataSource
+          .registerWithEmailAndPassword(userEntity: userEntity)
+          .then((value) => addUser(userEntity: userEntity)));
     } on FirebaseAuthException catch (e) {
+    await  FirebaseAuth.instance.currentUser?.delete();
       log('error in auth repos.registerWithEmailAndPassword ${e.toString()}');
       if (e.code == 'weak-password') {
         return left(Failures(errorMessage: ' كلمة المرور ضعيفة جدا'));
@@ -28,6 +30,8 @@ class AuthReposImple extends AuthRepos {
         return left(Failures(errorMessage: e.code));
       }
     } catch (e) {
+          await  FirebaseAuth.instance.currentUser?.delete();
+
       log('error in auth repos.registerWithEmailAndPassword ${e.toString()}');
       return left(Failures(errorMessage: e.toString()));
     }
