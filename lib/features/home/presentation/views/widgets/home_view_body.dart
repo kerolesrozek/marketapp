@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:fruitesapp/features/home/presentation/views/widgets/custom_home_appbar.dart';
+import 'package:fruitesapp/features/home/presentation/views/widgets/custom_text_search_field.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class HomeViewBody extends StatelessWidget {
@@ -7,49 +9,23 @@ class HomeViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CustomScrollView(
-      slivers: [
-        SliverToBoxAdapter(
-          child: CustomHomeAppBar(),
-        )
-      ],
-    );
-  }
-}
-
-class CustomHomeAppBar extends StatelessWidget {
-  const CustomHomeAppBar({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return ListTile(
-      leading: CircleAvatar(
-        child: Image.asset(
-          'lib/assets/images/profile_image.png',
-          fit: BoxFit.cover,
-        ),
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: CustomScrollView(
+        slivers: [
+          SliverToBoxAdapter(
+            child: CustomHomeAppBar(),
+          ),
+          SliverToBoxAdapter(
+            child: SizedBox(
+              height: 15,
+            ),
+          ),
+          SliverToBoxAdapter(
+            child: CustomTextSearchField(),
+          )
+        ],
       ),
-      title: Text(
-        'صباح الخير !..',
-        style: GoogleFonts.cairo(
-          fontWeight: FontWeight.w400,
-          fontSize: 16,
-          color: Color(0xff949D9E),
-        ),
-      ),
-      subtitle: Text(
-        'أحمد مصطفي',
-        style: GoogleFonts.cairo(
-          fontWeight: FontWeight.w700,
-          fontSize: 16,
-          color: Color(0xff0C0D0D),
-        ),
-      ),
-      trailing: Container(
-          padding: EdgeInsets.all(12),
-          decoration:
-              ShapeDecoration(shape: OvalBorder(), color: Color(0xffEEF8ED)),
-          child: SvgPicture.asset('lib/assets/images/notification.svg')),
     );
   }
 }
