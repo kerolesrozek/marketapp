@@ -8,7 +8,7 @@ class LoginWithGoogle {
 
   LoginWithGoogle({required this.authRepos});
 
-  Future<Either<Failures, UserCredential>> call()async {
+  Future<Either<Failures, void>> call()async {
     return await authRepos.loginWithGoogle();
   }
 }

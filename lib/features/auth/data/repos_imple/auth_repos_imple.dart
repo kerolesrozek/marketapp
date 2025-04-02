@@ -19,7 +19,7 @@ class AuthReposImple extends AuthRepos {
           .registerWithEmailAndPassword(userEntity: userEntity)
           .then((value) => addUser(userEntity: userEntity)));
     } on FirebaseAuthException catch (e) {
-    await  FirebaseAuth.instance.currentUser?.delete();
+      await FirebaseAuth.instance.currentUser?.delete();
       log('error in auth repos.registerWithEmailAndPassword ${e.toString()}');
       if (e.code == 'weak-password') {
         return left(Failures(errorMessage: ' كلمة المرور ضعيفة جدا'));
@@ -30,7 +30,7 @@ class AuthReposImple extends AuthRepos {
         return left(Failures(errorMessage: e.code));
       }
     } catch (e) {
-          await  FirebaseAuth.instance.currentUser?.delete();
+      await FirebaseAuth.instance.currentUser?.delete();
 
       log('error in auth repos.registerWithEmailAndPassword ${e.toString()}');
       return left(Failures(errorMessage: e.toString()));
@@ -71,20 +71,36 @@ class AuthReposImple extends AuthRepos {
   }
 
   @override
-  Future<Either<Failures, UserCredential>> loginWithGoogle() async {
+  Future<Either<Failures, void>> loginWithGoogle() async {
     try {
-      return right(await authRemoteDataSource.loginWithGoogle());
+      return right(await authRemoteDataSource.loginWithGoogle().then((value) {
+        addUser(
+          userEntity: UserEntity(
+              email: value.user!.email!,
+              name: value.user!.displayName!,
+              userId: value.user!.uid),
+        );
+      }));
     } catch (e) {
+      FirebaseAuth.instance.currentUser!.delete();
+
       log('error in auth reposImple.loginWithGoogle ${e.toString()}');
       return left(Failures(errorMessage: e.toString()));
     }
   }
 
   @override
-  Future<Either<Failures, UserCredential>> loginWithFacebook() async {
+  Future<Either<Failures, void>> loginWithFacebook() async {
     try {
-      return right(await authRemoteDataSource.loginWithFacebook());
+      return right(await authRemoteDataSource.loginWithFacebook().then((value) {
+        addUser(
+            userEntity: UserEntity(
+                name: value.user!.displayName!,
+                email: value.user!.email!,
+                userId: value.user!.uid));
+      }));
     } catch (e) {
+      FirebaseAuth.instance.currentUser!.delete();
       log('error in auth reposImple.loginWithFacebook ${e.toString()}');
       return left(Failures(errorMessage: e.toString()));
     }

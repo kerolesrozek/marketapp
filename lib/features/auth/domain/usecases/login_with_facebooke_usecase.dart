@@ -8,7 +8,7 @@ class LoginWithFacebookeUsecase {
 
   LoginWithFacebookeUsecase({required this.authRepos});
 
-  Future<Either<Failures, UserCredential>> call() async {
+  Future<Either<Failures, void>> call() async {
     return await authRepos.loginWithFacebook();
   }
 }
