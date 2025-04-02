@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fruitesapp/core/app_routes.dart';
 import 'package:fruitesapp/features/auth/presentation/cubits/login_emailpassword_cubit/login_emailpassword_cubit.dart';
 import 'package:fruitesapp/features/auth/presentation/views/widgets/login_view_body.dart';
+import 'package:go_router/go_router.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 
 class LoginViewBuilder extends StatelessWidget {
@@ -16,6 +18,7 @@ class LoginViewBuilder extends StatelessWidget {
         if (state is LoginSuccess) {
           ScaffoldMessenger.of(context)
               .showSnackBar(SnackBar(content: Text('تم تسجيل الدخول بنجاح')));
+          GoRouter.of(context).pushReplacement(AppRoutes.kHomeView);
         }
         if (state is LoginFailure) {
           ScaffoldMessenger.of(context)

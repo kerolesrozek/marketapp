@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fruitesapp/core/app_routes.dart';
 import 'package:fruitesapp/features/auth/presentation/cubits/register_emailpassword_cubit/register_emailandpassword_cubit.dart';
 import 'package:fruitesapp/features/auth/presentation/views/widgets/register_view_body.dart';
+import 'package:go_router/go_router.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 
 class RegisterViewBodyBuilder extends StatelessWidget {
@@ -17,6 +19,7 @@ class RegisterViewBodyBuilder extends StatelessWidget {
         if (state is RegisterEmailandpasswordSuccess) {
           ScaffoldMessenger.of(context)
               .showSnackBar(SnackBar(content: Text('تم انشاء الحساب بنجاح')));
+          GoRouter.of(context).pushReplacement(AppRoutes.kHomeView);
         }
         if (state is RegisterEmailandpasswordFailure) {
           ScaffoldMessenger.of(context)
