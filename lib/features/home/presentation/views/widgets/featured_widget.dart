@@ -10,7 +10,7 @@ class FeaturedWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 16.0),
+      padding: const EdgeInsets.only(left: 10.0),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(12),
         child: SizedBox(
