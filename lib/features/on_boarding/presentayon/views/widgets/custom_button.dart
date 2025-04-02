@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class CustomButton extends StatelessWidget {
-  const CustomButton(
-      {super.key,
-      required this.title,
-      this.onPressed,
-      // required this.isLoading,
-      });
+  const CustomButton({
+    super.key,
+    required this.title,
+    this.onPressed,
+    // required this.isLoading,
+  });
   final String title;
   final void Function()? onPressed;
   // final bool isLoading;
@@ -23,10 +23,9 @@ class CustomButton extends StatelessWidget {
       height: 54,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
       child: Text(
-              title,
-              style:
-                  GoogleFonts.cairo(fontSize: 16, fontWeight: FontWeight.w700),
-            ),
+        title,
+        style: GoogleFonts.cairo(fontSize: 16, fontWeight: FontWeight.w700),
+      ),
     );
   }
 }
