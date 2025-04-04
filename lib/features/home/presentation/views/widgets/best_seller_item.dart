@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -24,7 +23,6 @@ class BestSellerItem extends StatelessWidget {
             right: 0,
             child: Image.asset(
               'lib/assets/images/image 29.png',
-              // fit: BoxFit.fill,
             ),
           ),
           Positioned(
@@ -36,20 +34,27 @@ class BestSellerItem extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    'فراوله',
-                    style: GoogleFonts.cairo(
-                        fontSize: 13, fontWeight: FontWeight.w600),
+                  Align(
+                    alignment: Alignment.bottomRight,
+                    child: Expanded(
+                      child: Text(
+                        'فراوله',
+                        style: GoogleFonts.cairo(
+                            fontSize: 13, fontWeight: FontWeight.w600),
+                      ),
+                    ),
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text(
-                        '20جنية / الكيلو',
-                        style: GoogleFonts.cairo(
-                            fontSize: 13,
-                            fontWeight: FontWeight.w700,
-                            color: Colors.amber),
+                      Expanded(
+                        child: Text(
+                          '20جنية / الكيلو',
+                          style: GoogleFonts.cairo(
+                              fontSize: 13,
+                              fontWeight: FontWeight.w700,
+                              color: Colors.amber),
+                        ),
                       ),
                       Container(
                           decoration: BoxDecoration(

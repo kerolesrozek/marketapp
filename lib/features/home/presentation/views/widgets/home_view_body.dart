@@ -46,7 +46,7 @@ class HomeViewBody extends StatelessWidget {
               height: 20,
             ),
           ),
-          BestSellerItemsList()
+          BestSellerItemsList(),
         ],
       ),
     );

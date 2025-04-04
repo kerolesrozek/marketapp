@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:fruitesapp/core/app_routes.dart';
@@ -17,6 +18,18 @@ class _SplashViewBodyState extends State<SplashViewBody> {
   void initState() {
     super.initState();
     navigationAfterSplash();
+    // isUserLoggedIn();
+  }
+
+  Future<void> isUserLoggedIn() async {
+    User? user = FirebaseAuth.instance.currentUser;
+    if (user == null) {
+      // لو المستخدم مش مسجل دخول، هنوجهه لشاشة تسجيل الدخول
+      GoRouter.of(context).pushReplacement(AppRoutes.kLoginview);
+    } else {
+      // لو المستخدم مسجل دخول، هنوجهه للشاشة الرئيسية
+      GoRouter.of(context).pushReplacement(AppRoutes.kHomeView);
+    }
   }
 
   Future<void> navigationAfterSplash() {
@@ -26,7 +39,8 @@ class _SplashViewBodyState extends State<SplashViewBody> {
         ), () {
       if (mounted) {
         if (Prefs.getBool(kIsOnBoardingSeen)) {
-          GoRouter.of(context).pushReplacement(AppRoutes.kLoginview);
+          isUserLoggedIn();
+          // GoRouter.of(context).pushReplacement(AppRoutes.kLoginview);
         } else {
           GoRouter.of(context).pushReplacement(AppRoutes.kOnBoardingView);
         }
