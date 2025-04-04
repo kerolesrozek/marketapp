@@ -1,6 +1,9 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:fruitesapp/core/app_routes.dart';
 import 'package:fruitesapp/core/consts.dart';
 import 'package:fruitesapp/features/home/presentation/views/widgets/home_view_body.dart';
+import 'package:go_router/go_router.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
@@ -51,6 +54,12 @@ class _HomeViewState extends State<HomeView> {
           ),
         ],
       ),
+      floatingActionButton: FloatingActionButton(
+          onPressed: () async {
+            await FirebaseAuth.instance.signOut();
+            GoRouter.of(context).pushReplacement(AppRoutes.kLoginview);
+          },
+          child: Icon(Icons.exit_to_app)),
     );
   }
 }

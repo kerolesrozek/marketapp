@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fruitesapp/features/home/data/data_sources/home_remote_data_source.dart';
+import 'package:fruitesapp/features/home/data/repos_imple/home_repos_imple.dart';
+import 'package:fruitesapp/features/home/domain/usecases/get_user_data_usecase.dart';
+import 'package:fruitesapp/features/home/presentation/cubits/get_user_data_cubit/get_user_data_cubit.dart';
 import 'package:fruitesapp/features/home/presentation/views/widgets/best_selle_header_widget.dart';
 import 'package:fruitesapp/features/home/presentation/views/widgets/best_seller_items_list.dart';
 import 'package:fruitesapp/features/home/presentation/views/widgets/custom_home_appbar.dart';
@@ -15,7 +20,12 @@ class HomeViewBody extends StatelessWidget {
       child: CustomScrollView(
         slivers: [
           SliverToBoxAdapter(
-            child: CustomHomeAppBar(),
+            child: BlocProvider(
+              create: (context) => GetUserDataCubit(GetUserDataUsecase(
+                  homeRepos: HomeReposImple(
+                      homeRemoteDataSource: HomeRemoteDataSourceImpl()))),
+              child: CustomHomeAppBar(),
+            ),
           ),
           SliverToBoxAdapter(
             child: SizedBox(

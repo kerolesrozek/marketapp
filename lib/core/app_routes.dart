@@ -1,5 +1,6 @@
 import 'package:fruitesapp/features/auth/presentation/views/login_view.dart';
 import 'package:fruitesapp/features/auth/presentation/views/register_view.dart';
+import 'package:fruitesapp/features/best_seller/presentation/views/best_seller_view.dart';
 import 'package:fruitesapp/features/home/presentation/views/home_view.dart';
 import 'package:fruitesapp/features/on_boarding/presentayon/views/on_boarding_view.dart';
 import 'package:fruitesapp/features/splash/presentation/views/spalsh_view.dart';
@@ -11,6 +12,8 @@ class AppRoutes {
   static final kLoginview = '/kLoginview';
   static final kRegisterView = '/kRegisterView';
   static final kHomeView = '/kHomeView';
+
+  static final kBestSellerView = '/kBestSellerView';
   static final router = GoRouter(
     routes: [
       GoRoute(
@@ -28,9 +31,8 @@ class AppRoutes {
       GoRoute(
           path: kRegisterView,
           builder: (context, state) => const RegisterView()),
-           GoRoute(
-          path: kHomeView,
-          builder: (context, state) => const HomeView()),
+      GoRoute(path: kHomeView, builder: (context, state) => const HomeView()),
+      GoRoute(path: kBestSellerView, builder: (context, state) => const BestSellerView()),
     ],
   );
 }
