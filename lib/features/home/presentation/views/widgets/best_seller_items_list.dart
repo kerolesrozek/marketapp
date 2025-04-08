@@ -7,7 +7,7 @@ class BestSellerItemsList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SliverGrid.builder(
-        itemCount: 20,
+        itemCount: 10,
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
           crossAxisSpacing: 15,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fruitesapp/core/services/get_it_sevice.dart';
 import 'package:fruitesapp/features/home/data/data_sources/home_remote_data_source.dart';
 import 'package:fruitesapp/features/home/data/repos_imple/home_repos_imple.dart';
 import 'package:fruitesapp/features/home/domain/usecases/get_user_data_usecase.dart';
@@ -22,8 +23,7 @@ class HomeViewBody extends StatelessWidget {
           SliverToBoxAdapter(
             child: BlocProvider(
               create: (context) => GetUserDataCubit(GetUserDataUsecase(
-                  homeRepos: HomeReposImple(
-                      homeRemoteDataSource: HomeRemoteDataSourceImpl()))),
+                  homeRepos:getIt.get<HomeReposImple>())),
               child: CustomHomeAppBar(),
             ),
           ),

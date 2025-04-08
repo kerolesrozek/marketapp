@@ -54,12 +54,12 @@ class _HomeViewState extends State<HomeView> {
           ),
         ],
       ),
-      floatingActionButton: FloatingActionButton(
-          onPressed: () async {
-            await FirebaseAuth.instance.signOut();
-            GoRouter.of(context).pushReplacement(AppRoutes.kLoginview);
-          },
-          child: Icon(Icons.exit_to_app)),
+      // floatingActionButton: FloatingActionButton(
+      //     onPressed: () async {
+      //       await FirebaseAuth.instance.signOut();
+      //       GoRouter.of(context).pushReplacement(AppRoutes.kLoginview);
+      //     },
+      //     child: Icon(Icons.exit_to_app)),
     );
   }
 }
