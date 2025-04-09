@@ -5,6 +5,7 @@ import 'package:fruitesapp/core/app_routes.dart';
 import 'package:fruitesapp/core/services/custom_bloc_observer.dart';
 import 'package:fruitesapp/core/services/get_it_sevice.dart';
 import 'package:fruitesapp/core/services/shared_prefrence_singletone.dart';
+
 import 'package:fruitesapp/firebase_options.dart';
 
 import 'generated/l10n.dart';

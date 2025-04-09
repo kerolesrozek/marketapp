@@ -1,12 +1,15 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:fruitesapp/features/home/domain/entities/product_entity.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class BestSellerItem extends StatelessWidget {
   const BestSellerItem({
     super.key,
+    required this.productEntity,
   });
-
+  final ProductEntity productEntity;
   @override
   Widget build(BuildContext context) {
     return AspectRatio(
@@ -23,8 +26,10 @@ class BestSellerItem extends StatelessWidget {
             Positioned(
               left: 0,
               right: 0,
-              child: Image.asset(
-                'lib/assets/images/image 29.png',
+              child: CachedNetworkImage(
+                imageUrl: productEntity.imagePath,
+                // placeholder: (context, url) => CircularProgressIndicator(),
+                errorWidget: (context, url, error) => Icon(Icons.error),
               ),
             ),
             Positioned(
@@ -39,7 +44,7 @@ class BestSellerItem extends StatelessWidget {
                     Align(
                       alignment: Alignment.bottomRight,
                       child: Text(
-                        'فراوله',
+                        productEntity.name,
                         style: GoogleFonts.cairo(
                             fontSize: 13, fontWeight: FontWeight.w600),
                       ),
@@ -49,7 +54,7 @@ class BestSellerItem extends StatelessWidget {
                       children: [
                         Expanded(
                           child: Text(
-                            '20جنية / الكيلو',
+                            '${productEntity.price} جنيه/${productEntity.unitAmount}كيلو',
                             style: GoogleFonts.cairo(
                                 fontSize: 13,
                                 fontWeight: FontWeight.w700,

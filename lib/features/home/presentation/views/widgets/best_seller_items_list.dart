@@ -1,13 +1,17 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
+import 'package:fruitesapp/features/home/domain/entities/product_entity.dart';
 import 'package:fruitesapp/features/home/presentation/views/widgets/best_seller_item.dart';
 
 class BestSellerItemsList extends StatelessWidget {
-  const BestSellerItemsList({super.key});
+  const BestSellerItemsList({super.key, required this.products});
 
+  final List<ProductEntity> products;
   @override
   Widget build(BuildContext context) {
     return SliverGrid.builder(
-        itemCount: 10,
+        itemCount: products.length,
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
           crossAxisSpacing: 15,
@@ -15,7 +19,9 @@ class BestSellerItemsList extends StatelessWidget {
           childAspectRatio: 1 / 1.4,
         ),
         itemBuilder: (context, index) {
-          return BestSellerItem();
+          return BestSellerItem(
+            productEntity: products[index],
+          );
         });
   }
 }

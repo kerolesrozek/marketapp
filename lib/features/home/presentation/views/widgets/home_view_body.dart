@@ -1,18 +1,35 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruitesapp/core/services/get_it_sevice.dart';
+import 'package:fruitesapp/features/best_seller/presentation/cubits/cubit/get_best_selling_products_cubit.dart';
 import 'package:fruitesapp/features/home/data/data_sources/home_remote_data_source.dart';
 import 'package:fruitesapp/features/home/data/repos_imple/home_repos_imple.dart';
 import 'package:fruitesapp/features/home/domain/usecases/get_user_data_usecase.dart';
+import 'package:fruitesapp/features/home/presentation/cubits/get_products_cubit/get_products_cubit.dart';
 import 'package:fruitesapp/features/home/presentation/cubits/get_user_data_cubit/get_user_data_cubit.dart';
 import 'package:fruitesapp/features/home/presentation/views/widgets/best_selle_header_widget.dart';
+import 'package:fruitesapp/features/home/presentation/views/widgets/best_seller_item.dart';
 import 'package:fruitesapp/features/home/presentation/views/widgets/best_seller_items_list.dart';
+import 'package:fruitesapp/features/home/presentation/views/widgets/best_seller_items_list_builder.dart';
 import 'package:fruitesapp/features/home/presentation/views/widgets/custom_home_appbar.dart';
 import 'package:fruitesapp/features/home/presentation/views/widgets/custom_text_search_field.dart';
 import 'package:fruitesapp/features/home/presentation/views/widgets/featued_list_view.dart';
+import 'package:skeletonizer/skeletonizer.dart';
 
-class HomeViewBody extends StatelessWidget {
+class HomeViewBody extends StatefulWidget {
   const HomeViewBody({super.key});
+
+  @override
+  State<HomeViewBody> createState() => _HomeViewBodyState();
+}
+
+class _HomeViewBodyState extends State<HomeViewBody> {
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    BlocProvider.of<GetBestSellingProductsCubit>(context).getBestSellingProducts();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -22,8 +39,8 @@ class HomeViewBody extends StatelessWidget {
         slivers: [
           SliverToBoxAdapter(
             child: BlocProvider(
-              create: (context) => GetUserDataCubit(GetUserDataUsecase(
-                  homeRepos:getIt.get<HomeReposImple>())),
+              create: (context) => GetUserDataCubit(
+                  GetUserDataUsecase(homeRepos: getIt.get<HomeReposImple>())),
               child: CustomHomeAppBar(),
             ),
           ),
@@ -56,7 +73,7 @@ class HomeViewBody extends StatelessWidget {
               height: 20,
             ),
           ),
-          BestSellerItemsList(),
+          BestSellerItemsListBuilder(),
         ],
       ),
     );
