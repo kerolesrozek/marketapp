@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
-import 'package:fruitesapp/features/home/domain/entities/product_entity.dart';
-import 'package:fruitesapp/features/home/domain/usecases/get_products_usecase.dart';
+import 'package:fruitesapp/features/products/domain/entities/product_entity.dart';
+import 'package:fruitesapp/features/products/domain/usecases/get_products_usecase.dart';
 import 'package:meta/meta.dart';
 
 part 'get_products_state.dart';

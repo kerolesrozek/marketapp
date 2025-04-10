@@ -2,8 +2,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:fruitesapp/features/home/data/data_sources/home_remote_data_source.dart';
-import 'package:fruitesapp/features/home/data/repos_imple/home_repos_imple.dart';
+import 'package:fruitesapp/features/products/data/data_sources/products_remote_data_source.dart';
+import 'package:fruitesapp/features/products/data/repos_imple/products_repos_imple.dart';
 import 'package:fruitesapp/features/home/domain/usecases/get_user_data_usecase.dart';
 import 'package:fruitesapp/features/home/presentation/cubits/get_user_data_cubit/get_user_data_cubit.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -20,8 +20,8 @@ class _CustomHomeAppBarState extends State<CustomHomeAppBar> {
   @override
   void initState() {
     super.initState();
-    BlocProvider.of<GetUserDataCubit>(context)
-        .getUserData(uid: FirebaseAuth.instance.currentUser!.uid);
+    // BlocProvider.of<GetUserDataCubit>(context)
+    //     .getUserData(uid: FirebaseAuth.instance.currentUser!.uid);
   }
 
   @override

@@ -34,12 +34,7 @@ class BestSellerView extends StatelessWidget {
         ],
       ),
       body: SafeArea(
-          child: BlocProvider(
-        create: (context) => GetBestSellingProductsCubit(
-          GetBestSellingProductsUsecase(bestSellingRepos: BestSellingReposImple(bestSellingRemoteDataSource: BestSellingRemoteDataSourceImpl()))
-        ),
-        child: BestSellerViewBody(),
-      )),
+          child: BestSellerViewBody()),
     );
   }
 }

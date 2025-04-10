@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:fruitesapp/features/best_seller/domain/usecases/get_best_selling_products_usecase.dart';
-import 'package:fruitesapp/features/home/domain/entities/product_entity.dart';
+import 'package:fruitesapp/features/products/domain/entities/product_entity.dart';
 import 'package:meta/meta.dart';
 
 part 'get_best_selling_products_state.dart';

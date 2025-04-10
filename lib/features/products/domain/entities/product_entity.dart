@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:fruitesapp/features/home/domain/entities/review_entity.dart';
+import 'package:fruitesapp/features/products/domain/entities/review_entity.dart';
 
 
 class ProductEntity {

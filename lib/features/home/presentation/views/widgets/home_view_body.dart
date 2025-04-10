@@ -1,11 +1,14 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruitesapp/core/services/get_it_sevice.dart';
 import 'package:fruitesapp/features/best_seller/presentation/cubits/cubit/get_best_selling_products_cubit.dart';
 import 'package:fruitesapp/features/home/data/data_sources/home_remote_data_source.dart';
 import 'package:fruitesapp/features/home/data/repos_imple/home_repos_imple.dart';
+import 'package:fruitesapp/features/products/data/data_sources/products_remote_data_source.dart';
+import 'package:fruitesapp/features/products/data/repos_imple/products_repos_imple.dart';
 import 'package:fruitesapp/features/home/domain/usecases/get_user_data_usecase.dart';
-import 'package:fruitesapp/features/home/presentation/cubits/get_products_cubit/get_products_cubit.dart';
+import 'package:fruitesapp/features/products/presentation/cubits/get_products_cubit/get_products_cubit.dart';
 import 'package:fruitesapp/features/home/presentation/cubits/get_user_data_cubit/get_user_data_cubit.dart';
 import 'package:fruitesapp/features/home/presentation/views/widgets/best_selle_header_widget.dart';
 import 'package:fruitesapp/features/home/presentation/views/widgets/best_seller_item.dart';
@@ -28,7 +31,8 @@ class _HomeViewBodyState extends State<HomeViewBody> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    BlocProvider.of<GetBestSellingProductsCubit>(context).getBestSellingProducts();
+    // BlocProvider.of<GetBestSellingProductsCubit>(context)
+    //     .getBestSellingProducts();
   }
 
   @override
@@ -39,8 +43,9 @@ class _HomeViewBodyState extends State<HomeViewBody> {
         slivers: [
           SliverToBoxAdapter(
             child: BlocProvider(
-              create: (context) => GetUserDataCubit(
-                  GetUserDataUsecase(homeRepos: getIt.get<HomeReposImple>())),
+              create: (context) => GetUserDataCubit(GetUserDataUsecase(
+                  homeRepos: HomeReposImple(
+                      homeRemoteDataSource: HomeRemoteDataSourceImple())))..getUserData(uid: FirebaseAuth.instance.currentUser!.uid),
               child: CustomHomeAppBar(),
             ),
           ),

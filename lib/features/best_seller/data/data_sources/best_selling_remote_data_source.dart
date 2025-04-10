@@ -1,7 +1,7 @@
 import 'dart:developer';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:fruitesapp/features/home/domain/entities/product_entity.dart';
+import 'package:fruitesapp/features/products/domain/entities/product_entity.dart';
 
 abstract class BestSellingRemoteDataSource {
   Future<List<ProductEntity>> getBestSellingProducts();
