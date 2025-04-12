@@ -1,9 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:fruitesapp/core/app_routes.dart';
-import 'package:fruitesapp/core/consts.dart';
-import 'package:fruitesapp/core/services/shared_prefrence_singletone.dart';
+import '../../../../../core/app_routes.dart';
+import '../../../../../core/consts.dart';
+import '../../../../../core/services/shared_prefrence_singletone.dart';
 import 'package:go_router/go_router.dart';
 
 class SplashViewBody extends StatefulWidget {

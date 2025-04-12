@@ -1,9 +1,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:fruitesapp/features/products/domain/entities/product_entity.dart';
-import 'package:fruitesapp/features/products/presentation/cubits/get_products_cubit/get_products_cubit.dart';
-import 'package:fruitesapp/features/products/presentation/views/widgets/products_list_view.dart';
+import '../../../domain/entities/product_entity.dart';
+import '../../cubits/get_products_cubit/get_products_cubit.dart';
+import 'products_list_view.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
 class ProductsListViewBuilder extends StatelessWidget {

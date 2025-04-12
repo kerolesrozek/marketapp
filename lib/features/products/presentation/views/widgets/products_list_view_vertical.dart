@@ -1,7 +1,7 @@
 
 import 'package:flutter/material.dart';
-import 'package:fruitesapp/features/home/presentation/views/widgets/best_seller_item.dart';
-import 'package:fruitesapp/features/products/domain/entities/product_entity.dart';
+import '../../../../home/presentation/views/widgets/best_seller_item.dart';
+import '../../../domain/entities/product_entity.dart';
 
 class ProductsItemsList extends StatelessWidget {
   const ProductsItemsList({super.key, required this.products});

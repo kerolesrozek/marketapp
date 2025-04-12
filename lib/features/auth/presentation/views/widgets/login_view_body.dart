@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:fruitesapp/features/auth/presentation/views/widgets/dont_have_account_widget.dart';
-import 'package:fruitesapp/features/auth/presentation/views/widgets/login_form.dart';
-import 'package:fruitesapp/features/auth/presentation/views/widgets/login_with_social_part_widget.dart';
+import 'dont_have_account_widget.dart';
+import 'login_form.dart';
+import 'login_with_social_part_widget.dart';
 
 class LoginViewBody extends StatelessWidget {
   const LoginViewBody({super.key, required this.isLoading});

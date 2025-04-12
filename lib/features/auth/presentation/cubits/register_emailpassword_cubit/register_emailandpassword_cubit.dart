@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
-import 'package:fruitesapp/features/auth/domain/entities/user_entity.dart';
-import 'package:fruitesapp/features/auth/domain/usecases/register_with_emailandpassword_usecase.dart';
+import '../../../domain/entities/user_entity.dart';
+import '../../../domain/usecases/register_with_emailandpassword_usecase.dart';
 part 'register_emailandpassword_state.dart';
 
 class RegisterEmailandpasswordCubit

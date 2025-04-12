@@ -1,5 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:fruitesapp/features/auth/domain/entities/user_entity.dart';
+import '../../../auth/domain/entities/user_entity.dart';
 
 abstract class HomeRemoteDataSource {
   Future<UserEntity> getUserData({required String uid});

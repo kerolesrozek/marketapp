@@ -1,9 +1,10 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:fruitesapp/core/app_routes.dart';
-import 'package:fruitesapp/core/consts.dart';
-import 'package:fruitesapp/features/home/presentation/views/widgets/home_view_body.dart';
-import 'package:fruitesapp/features/products/presentation/views/products_view.dart';
+import '../../../../core/app_routes.dart';
+import '../../../../core/consts.dart';
+import '../../../cart/presentation/views/cart_view.dart';
+import 'widgets/home_view_body.dart';
+import '../../../products/presentation/views/products_view.dart';
 import 'package:go_router/go_router.dart';
 
 class HomeView extends StatefulWidget {
@@ -17,7 +18,7 @@ class _HomeViewState extends State<HomeView> {
   List<Widget> screens = [
     HomeViewBody(),
     ProductsView(),
-    Center(child: Text('cart')),
+    CartView(),
     Center(child: Text('profile')),
   ];
   int currentIndex = 0;

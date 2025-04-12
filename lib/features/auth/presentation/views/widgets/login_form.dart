@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:fruitesapp/features/auth/domain/entities/user_entity.dart';
-import 'package:fruitesapp/features/auth/presentation/cubits/login_emailpassword_cubit/login_emailpassword_cubit.dart';
-import 'package:fruitesapp/features/auth/presentation/views/widgets/custom_text_form_field.dart';
-import 'package:fruitesapp/features/auth/presentation/views/widgets/custtom_password_textfield.dart';
-import 'package:fruitesapp/features/on_boarding/presentayon/views/widgets/custom_button.dart';
+import '../../../domain/entities/user_entity.dart';
+import '../../cubits/login_emailpassword_cubit/login_emailpassword_cubit.dart';
+import 'custom_text_form_field.dart';
+import 'custtom_password_textfield.dart';
+import '../../../../on_boarding/presentayon/views/widgets/custom_button.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class LoginForm extends StatefulWidget {

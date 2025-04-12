@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'package:fruitesapp/features/auth/presentation/views/widgets/have_account_widget.dart';
-import 'package:fruitesapp/features/auth/presentation/views/widgets/register_form.dart';
+import 'have_account_widget.dart';
+import 'register_form.dart';
 
 class RegisterViewBody extends StatelessWidget {
   const RegisterViewBody({super.key, required this.isLoading});

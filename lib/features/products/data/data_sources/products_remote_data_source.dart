@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:fruitesapp/features/auth/domain/entities/user_entity.dart';
-import 'package:fruitesapp/features/products/domain/entities/product_entity.dart';
-import 'package:fruitesapp/features/products/domain/entities/review_entity.dart';
+import '../../../auth/domain/entities/user_entity.dart';
+import '../../domain/entities/product_entity.dart';
+import '../../domain/entities/review_entity.dart';
 
 abstract class ProductsRemoteDataSource {
   Future<List<ProductEntity>> getProducts();

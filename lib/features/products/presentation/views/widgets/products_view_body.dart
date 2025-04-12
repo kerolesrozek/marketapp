@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:fruitesapp/features/home/presentation/views/widgets/best_selle_header_widget.dart';
-import 'package:fruitesapp/features/home/presentation/views/widgets/custom_text_search_field.dart';
-import 'package:fruitesapp/features/products/presentation/views/widgets/products_header.dart';
-import 'package:fruitesapp/features/products/presentation/views/widgets/products_items_listview_builder.dart';
-import 'package:fruitesapp/features/products/presentation/views/widgets/products_list_view_builder.dart';
+import '../../../../home/presentation/views/widgets/best_selle_header_widget.dart';
+import '../../../../home/presentation/views/widgets/custom_text_search_field.dart';
+import 'products_header.dart';
+import 'products_items_listview_builder.dart';
+import 'products_list_view_builder.dart';
 
 class ProductsViewBody extends StatelessWidget {
   const ProductsViewBody({super.key});

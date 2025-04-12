@@ -2,10 +2,10 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:fruitesapp/features/products/data/data_sources/products_remote_data_source.dart';
-import 'package:fruitesapp/features/products/data/repos_imple/products_repos_imple.dart';
-import 'package:fruitesapp/features/home/domain/usecases/get_user_data_usecase.dart';
-import 'package:fruitesapp/features/home/presentation/cubits/get_user_data_cubit/get_user_data_cubit.dart';
+import '../../../../products/data/data_sources/products_remote_data_source.dart';
+import '../../../../products/data/repos_imple/products_repos_imple.dart';
+import '../../../domain/usecases/get_user_data_usecase.dart';
+import '../../cubits/get_user_data_cubit/get_user_data_cubit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 

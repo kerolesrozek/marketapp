@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:fruitesapp/core/consts.dart';
+import '../../../../../core/consts.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class CheckBoxWidget extends StatefulWidget {

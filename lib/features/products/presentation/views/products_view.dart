@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:fruitesapp/core/services/get_it_sevice.dart';
-import 'package:fruitesapp/features/products/data/repos_imple/products_repos_imple.dart';
-import 'package:fruitesapp/features/products/domain/usecases/get_products_usecase.dart';
-import 'package:fruitesapp/features/products/presentation/cubits/get_products_cubit/get_products_cubit.dart';
-import 'package:fruitesapp/features/products/presentation/views/widgets/products_view_body.dart';
+import '../../../../core/services/get_it_sevice.dart';
+import '../../data/repos_imple/products_repos_imple.dart';
+import '../../domain/usecases/get_products_usecase.dart';
+import '../cubits/get_products_cubit/get_products_cubit.dart';
+import 'widgets/products_view_body.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class ProductsView extends StatelessWidget {

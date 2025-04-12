@@ -1,9 +1,9 @@
 
 
 import 'package:dartz/dartz.dart';
-import 'package:fruitesapp/core/failures.dart';
-import 'package:fruitesapp/features/auth/domain/entities/user_entity.dart';
-import 'package:fruitesapp/features/home/domain/repos/home_repos.dart';
+import '../../../../core/failures.dart';
+import '../../../auth/domain/entities/user_entity.dart';
+import '../repos/home_repos.dart';
 
 class GetUserDataUsecase {
   final HomeRepos homeRepos;

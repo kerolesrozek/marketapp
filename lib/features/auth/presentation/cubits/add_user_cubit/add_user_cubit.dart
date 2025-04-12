@@ -1,6 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:fruitesapp/features/auth/domain/entities/user_entity.dart';
-import 'package:fruitesapp/features/auth/domain/usecases/add_user_usecase.dart';
+import '../../../domain/entities/user_entity.dart';
+import '../../../domain/usecases/add_user_usecase.dart';
 
 part 'add_user_state.dart';
 

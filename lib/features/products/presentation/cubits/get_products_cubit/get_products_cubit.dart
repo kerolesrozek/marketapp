@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
-import 'package:fruitesapp/features/products/domain/entities/product_entity.dart';
-import 'package:fruitesapp/features/products/domain/usecases/get_products_usecase.dart';
+import '../../../domain/entities/product_entity.dart';
+import '../../../domain/usecases/get_products_usecase.dart';
 import 'package:meta/meta.dart';
 
 part 'get_products_state.dart';
@@ -8,6 +8,7 @@ part 'get_products_state.dart';
 class GetProductsCubit extends Cubit<GetProductsState> {
   GetProductsCubit(this.getProductsUsecase) : super(GetProductsInitial());
   final GetProductsUsecase getProductsUsecase;
+  
 
   Future<void> getProducts() async {
     emit(GetProductsLoading());

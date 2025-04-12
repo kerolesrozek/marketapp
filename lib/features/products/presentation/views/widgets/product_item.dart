@@ -1,7 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:fruitesapp/features/products/domain/entities/product_entity.dart';
+import '../../../domain/entities/product_entity.dart';
 
 class ProductItem extends StatelessWidget {
   const ProductItem({

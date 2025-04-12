@@ -1,10 +1,10 @@
-import 'package:fruitesapp/features/auth/presentation/views/login_view.dart';
-import 'package:fruitesapp/features/auth/presentation/views/register_view.dart';
-import 'package:fruitesapp/features/best_seller/presentation/views/best_seller_view.dart';
-import 'package:fruitesapp/features/home/presentation/views/home_view.dart';
-import 'package:fruitesapp/features/on_boarding/presentayon/views/on_boarding_view.dart';
+import '../features/auth/presentation/views/login_view.dart';
+import '../features/auth/presentation/views/register_view.dart';
+import '../features/best_seller/presentation/views/best_seller_view.dart';
+import '../features/home/presentation/views/home_view.dart';
+import '../features/on_boarding/presentayon/views/on_boarding_view.dart';
 
-import 'package:fruitesapp/features/splash/presentation/views/spalsh_view.dart';
+import '../features/splash/presentation/views/spalsh_view.dart';
 import 'package:go_router/go_router.dart';
 
 class AppRoutes {

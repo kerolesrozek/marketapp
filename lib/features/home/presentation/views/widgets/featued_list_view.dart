@@ -1,6 +1,6 @@
 
 import 'package:flutter/material.dart';
-import 'package:fruitesapp/features/home/presentation/views/widgets/featured_widget.dart';
+import 'featured_widget.dart';
 
 class FeaturedListView extends StatelessWidget {
   const FeaturedListView({

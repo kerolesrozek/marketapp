@@ -1,7 +1,9 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:fruitesapp/features/products/domain/entities/product_entity.dart';
+import '../../../../cart/domain/entities/cart_entity.dart';
+import 'home_view_body.dart';
+import '../../../../products/domain/entities/product_entity.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class BestSellerItem extends StatelessWidget {

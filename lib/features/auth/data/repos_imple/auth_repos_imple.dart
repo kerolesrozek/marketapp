@@ -2,10 +2,10 @@ import 'dart:developer';
 
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:fruitesapp/core/failures.dart';
-import 'package:fruitesapp/features/auth/data/data_sources/auth_remote_data_source.dart';
-import 'package:fruitesapp/features/auth/domain/entities/user_entity.dart';
-import 'package:fruitesapp/features/auth/domain/repos/auth_repos.dart';
+import '../../../../core/failures.dart';
+import '../data_sources/auth_remote_data_source.dart';
+import '../../domain/entities/user_entity.dart';
+import '../../domain/repos/auth_repos.dart';
 
 class AuthReposImple extends AuthRepos {
   final AuthRemoteDataSource authRemoteDataSource;

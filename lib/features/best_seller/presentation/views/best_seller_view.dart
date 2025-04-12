@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:fruitesapp/features/best_seller/data/data_sources/best_selling_remote_data_source.dart';
-import 'package:fruitesapp/features/best_seller/data/repos_imple/best_selling_repos_imple.dart';
-import 'package:fruitesapp/features/best_seller/domain/usecases/get_best_selling_products_usecase.dart';
-import 'package:fruitesapp/features/best_seller/presentation/cubits/cubit/get_best_selling_products_cubit.dart';
-import 'package:fruitesapp/features/best_seller/presentation/views/widgets/best_Seller_view_body.dart';
-import 'package:fruitesapp/features/home/presentation/views/widgets/best_seller_items_list.dart';
-import 'package:fruitesapp/features/home/presentation/views/widgets/custom_home_appbar.dart';
+import '../../data/data_sources/best_selling_remote_data_source.dart';
+import '../../data/repos_imple/best_selling_repos_imple.dart';
+import '../../domain/usecases/get_best_selling_products_usecase.dart';
+import '../cubits/cubit/get_best_selling_products_cubit.dart';
+import 'widgets/best_Seller_view_body.dart';
+import '../../../home/presentation/views/widgets/best_seller_items_list.dart';
+import '../../../home/presentation/views/widgets/custom_home_appbar.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class BestSellerView extends StatelessWidget {

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:fruitesapp/features/products/domain/entities/product_entity.dart';
-import 'package:fruitesapp/features/products/presentation/views/widgets/product_item.dart';
+import '../../../domain/entities/product_entity.dart';
+import 'product_item.dart';
 
 class ProductsListView extends StatelessWidget {
   const ProductsListView({

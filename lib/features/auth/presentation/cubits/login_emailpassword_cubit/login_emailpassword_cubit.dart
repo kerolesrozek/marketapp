@@ -1,12 +1,12 @@
 import 'package:bloc/bloc.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:fruitesapp/core/services/get_it_sevice.dart';
-import 'package:fruitesapp/features/auth/data/data_sources/auth_remote_data_source.dart';
-import 'package:fruitesapp/features/auth/data/repos_imple/auth_repos_imple.dart';
-import 'package:fruitesapp/features/auth/domain/entities/user_entity.dart';
-import 'package:fruitesapp/features/auth/domain/usecases/login_with_emailpassword_usecase.dart';
-import 'package:fruitesapp/features/auth/domain/usecases/login_with_facebooke_usecase.dart';
-import 'package:fruitesapp/features/auth/domain/usecases/login_with_google.dart';
+import '../../../../../core/services/get_it_sevice.dart';
+import '../../../data/data_sources/auth_remote_data_source.dart';
+import '../../../data/repos_imple/auth_repos_imple.dart';
+import '../../../domain/entities/user_entity.dart';
+import '../../../domain/usecases/login_with_emailpassword_usecase.dart';
+import '../../../domain/usecases/login_with_facebooke_usecase.dart';
+import '../../../domain/usecases/login_with_google.dart';
 import 'package:meta/meta.dart';
 
 part 'login_emailpassword_state.dart';

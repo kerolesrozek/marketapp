@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:flutter_svg_provider/flutter_svg_provider.dart' as svg;
-import 'package:fruitesapp/features/home/presentation/views/widgets/featured_button.dart';
+import 'featured_button.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class FeaturedWidget extends StatelessWidget {

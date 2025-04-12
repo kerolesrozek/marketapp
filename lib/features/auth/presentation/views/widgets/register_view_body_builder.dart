@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:fruitesapp/core/app_routes.dart';
-import 'package:fruitesapp/features/auth/presentation/cubits/register_emailpassword_cubit/register_emailandpassword_cubit.dart';
-import 'package:fruitesapp/features/auth/presentation/views/widgets/register_view_body.dart';
+import '../../../../../core/app_routes.dart';
+import '../../cubits/register_emailpassword_cubit/register_emailandpassword_cubit.dart';
+import 'register_view_body.dart';
 import 'package:go_router/go_router.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 

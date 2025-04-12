@@ -1,7 +1,7 @@
 
 import 'package:flutter/material.dart';
-import 'package:fruitesapp/features/products/domain/entities/product_entity.dart';
-import 'package:fruitesapp/features/home/presentation/views/widgets/best_seller_item.dart';
+import '../../../../products/domain/entities/product_entity.dart';
+import 'best_seller_item.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
 class LoadingListProducts extends StatelessWidget {

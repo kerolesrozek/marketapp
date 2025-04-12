@@ -1,16 +1,16 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:fruitesapp/core/app_routes.dart';
-import 'package:fruitesapp/core/services/custom_bloc_observer.dart';
-import 'package:fruitesapp/core/services/get_it_sevice.dart';
-import 'package:fruitesapp/core/services/shared_prefrence_singletone.dart';
-import 'package:fruitesapp/features/best_seller/data/data_sources/best_selling_remote_data_source.dart';
-import 'package:fruitesapp/features/best_seller/data/repos_imple/best_selling_repos_imple.dart';
-import 'package:fruitesapp/features/best_seller/domain/usecases/get_best_selling_products_usecase.dart';
-import 'package:fruitesapp/features/best_seller/presentation/cubits/cubit/get_best_selling_products_cubit.dart';
+import 'core/app_routes.dart';
+import 'core/services/custom_bloc_observer.dart';
+import 'core/services/get_it_sevice.dart';
+import 'core/services/shared_prefrence_singletone.dart';
+import 'features/best_seller/data/data_sources/best_selling_remote_data_source.dart';
+import 'features/best_seller/data/repos_imple/best_selling_repos_imple.dart';
+import 'features/best_seller/domain/usecases/get_best_selling_products_usecase.dart';
+import 'features/best_seller/presentation/cubits/cubit/get_best_selling_products_cubit.dart';
 
-import 'package:fruitesapp/firebase_options.dart';
+import 'firebase_options.dart';
 
 import 'generated/l10n.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';

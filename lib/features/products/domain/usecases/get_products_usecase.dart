@@ -1,7 +1,7 @@
 import 'package:dartz/dartz.dart';
-import 'package:fruitesapp/core/failures.dart';
-import 'package:fruitesapp/features/products/domain/entities/product_entity.dart';
-import 'package:fruitesapp/features/products/domain/repos/products_repos.dart';
+import '../../../../core/failures.dart';
+import '../entities/product_entity.dart';
+import '../repos/products_repos.dart';
 
 class GetProductsUsecase {
   final ProductsRepos productsRepos;

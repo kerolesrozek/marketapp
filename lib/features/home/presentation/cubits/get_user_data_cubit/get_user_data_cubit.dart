@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
-import 'package:fruitesapp/features/auth/domain/entities/user_entity.dart';
-import 'package:fruitesapp/features/home/domain/usecases/get_user_data_usecase.dart';
+import '../../../../auth/domain/entities/user_entity.dart';
+import '../../../domain/usecases/get_user_data_usecase.dart';
 import 'package:meta/meta.dart';
 
 part 'get_user_data_state.dart';
