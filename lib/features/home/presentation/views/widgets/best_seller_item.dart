@@ -1,8 +1,9 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:fruitesapp/features/cart/presentation/cubit/add_cart_cubit/add_cart_cubit.dart';
 import '../../../../cart/domain/entities/cart_entity.dart';
-import 'home_view_body.dart';
 import '../../../../products/domain/entities/product_entity.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -30,7 +31,6 @@ class BestSellerItem extends StatelessWidget {
               right: 0,
               child: CachedNetworkImage(
                 imageUrl: productEntity.imagePath,
-                // placeholder: (context, url) => CircularProgressIndicator(),
                 errorWidget: (context, url, error) => Icon(Icons.error),
               ),
             ),
@@ -69,7 +69,13 @@ class BestSellerItem extends StatelessWidget {
                               color: Color(0xff1B5E37),
                             ),
                             child: IconButton(
-                                onPressed: () {},
+                                onPressed: () {
+                                  BlocProvider.of<AddCartCubit>(context)
+                                      .addToCart(
+                                          cartEntity: CartEntity(
+                                              productEntity: productEntity,
+                                              count: 1));
+                                },
                                 icon: Icon(
                                   Icons.add,
                                   color: Colors.white,

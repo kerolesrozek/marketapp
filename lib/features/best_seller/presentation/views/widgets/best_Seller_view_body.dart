@@ -15,13 +15,6 @@ class BestSellerViewBody extends StatefulWidget {
 
 class _BestSellerViewBodyState extends State<BestSellerViewBody> {
   @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    // context.read<GetBestSellingProductsCubit>().getBestSellingProducts();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(10.0),
@@ -39,7 +32,9 @@ class _BestSellerViewBodyState extends State<BestSellerViewBody> {
               height: 20,
             ),
           ),
-          BestSellerItemsListBuilder()
+          BestSellerItemsListBuilder(
+           
+          )
         ],
       ),
     );

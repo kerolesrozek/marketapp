@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import '../../../../home/presentation/views/widgets/best_selle_header_widget.dart';
 import '../../../../home/presentation/views/widgets/custom_text_search_field.dart';
 import 'products_header.dart';
@@ -33,7 +34,13 @@ class ProductsViewBody extends StatelessWidget {
             child: SizedBox(height: 15),
           ),
           SliverToBoxAdapter(
-            child: BestSellerHeaderWidget(),
+            child: Text(
+              'المنتجات',
+              style: GoogleFonts.cairo(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w700,
+                  color: Color(0xff0C0D0D)),
+            ),
           ),
           SliverToBoxAdapter(
             child: SizedBox(height: 20),

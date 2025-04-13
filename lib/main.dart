@@ -1,6 +1,9 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fruitesapp/features/cart/data/repositories/cart_repository_impl.dart';
+import 'package:fruitesapp/features/cart/domain/usecases/add_product_to_cart_usecase.dart';
+import 'package:fruitesapp/features/cart/presentation/cubit/add_cart_cubit/add_cart_cubit.dart';
 import 'core/app_routes.dart';
 import 'core/services/custom_bloc_observer.dart';
 import 'core/services/get_it_sevice.dart';
@@ -31,12 +34,21 @@ class FruitsMarket extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => GetBestSellingProductsCubit(
-          GetBestSellingProductsUsecase(
-              bestSellingRepos: BestSellingReposImple(
-                  bestSellingRemoteDataSource:
-                      BestSellingRemoteDataSourceImpl())))..getBestSellingProducts(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => GetBestSellingProductsCubit(
+              GetBestSellingProductsUsecase(
+                  bestSellingRepos: BestSellingReposImple(
+                      bestSellingRemoteDataSource:
+                          BestSellingRemoteDataSourceImpl())))
+            ..getBestSellingProducts(),
+        ),
+        BlocProvider(
+          create: (context) =>
+              AddCartCubit(AddCartUseCase(getIt.get<CartRepositoryImpl>())),
+        ),
+      ],
       child: MaterialApp.router(
         locale: Locale('ar'),
         localizationsDelegates: [

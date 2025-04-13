@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fruitesapp/features/cart/presentation/cubit/get_carts_cubit/get_carts_cubit.dart';
 import 'cart_items_list_view.dart';
-import '../../../../home/presentation/views/widgets/home_view_body.dart';
 import '../../../../on_boarding/presentayon/views/widgets/custom_button.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -27,8 +28,18 @@ class CartViewBody extends StatelessWidget {
           SizedBox(
             height: 20,
           ),
-          CartItemsListView(
-            cartList: [],
+          BlocBuilder<GetCartsCubit, GetCartsState>(
+            builder: (context, state) {
+              if (state is GetCartsSuccess) {
+                return CartItemsListView(
+                  cartList: state.carts,
+                );
+              } else if (state is GetCartsFailure) {
+                return Text(state.errorMessage);
+              } else {
+                return Text('data');
+              }
+            },
           ),
           SizedBox(
             height: 20,
