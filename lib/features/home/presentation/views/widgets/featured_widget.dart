@@ -1,11 +1,14 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:flutter_svg_provider/flutter_svg_provider.dart' as svg;
+import 'package:fruitesapp/features/products/domain/entities/product_entity.dart';
 import 'featured_button.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class FeaturedWidget extends StatelessWidget {
-  const FeaturedWidget({super.key});
+  const FeaturedWidget({super.key, required this.productEntity});
+  final ProductEntity productEntity;
 
   @override
   Widget build(BuildContext context) {
@@ -24,10 +27,10 @@ class FeaturedWidget extends StatelessWidget {
                   bottom: 0,
                   right: MediaQuery.sizeOf(context).width * 0.3,
                   top: 0,
-                  child: SvgPicture.asset(
-                    'lib/assets/images/page_view_item_1_image.svg',
-                    fit: BoxFit.fill,
-                  )),
+                  child: CachedNetworkImage(
+                      fit: BoxFit.fill,
+                      imageUrl: productEntity.imagePath,
+                      errorWidget: (context, url, error) => Icon(Icons.error))),
               Container(
                 padding: const EdgeInsets.only(
                   right: 20,

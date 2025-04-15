@@ -1,6 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fruitesapp/features/home/domain/usecases/get_featured_products_usecase.dart';
+import 'package:fruitesapp/features/home/presentation/cubits/get_featured_products_cubit/get_featured_products_cubit.dart';
+import 'package:fruitesapp/features/home/presentation/views/widgets/featured_list_view_builder.dart';
 import '../../../../../core/services/get_it_sevice.dart';
 import '../../../../best_seller/presentation/cubits/cubit/get_best_selling_products_cubit.dart';
 import '../../../../cart/domain/entities/cart_entity.dart';
@@ -29,62 +32,56 @@ class HomeViewBody extends StatefulWidget {
 
 class _HomeViewBodyState extends State<HomeViewBody> {
   @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    // BlocProvider.of<GetBestSellingProductsCubit>(context)
-    //     .getBestSellingProducts();
-  }
-
-  @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(10.0),
-      child: CustomScrollView(
-        slivers: [
-          SliverToBoxAdapter(
-            child: BlocProvider(
-              create: (context) => GetUserDataCubit(GetUserDataUsecase(
-                  homeRepos: HomeReposImple(
-                      homeRemoteDataSource: HomeRemoteDataSourceImple())))..getUserData(uid: FirebaseAuth.instance.currentUser!.uid),
-              child: CustomHomeAppBar(),
+    return BlocProvider(
+      create: (context) => GetFeaturedProductsCubit(
+        GetFeaturedProductsUsecase(homeRepos: getIt.get<HomeReposImple>()),
+      )..getFeaturedProducts(),
+      child: Padding(
+        padding: const EdgeInsets.all(10.0),
+        child: CustomScrollView(
+          slivers: [
+            SliverToBoxAdapter(
+              child: BlocProvider(
+                create: (context) => GetUserDataCubit(
+                    GetUserDataUsecase(homeRepos: getIt.get<HomeReposImple>()))
+                  ..getUserData(uid: FirebaseAuth.instance.currentUser!.uid),
+                child: CustomHomeAppBar(),
+              ),
             ),
-          ),
-          SliverToBoxAdapter(
-            child: SizedBox(
-              height: 15,
+            SliverToBoxAdapter(
+              child: SizedBox(
+                height: 15,
+              ),
             ),
-          ),
-          SliverToBoxAdapter(
-            child: CustomTextSearchField(),
-          ),
-          SliverToBoxAdapter(
-            child: SizedBox(
-              height: 15,
+            SliverToBoxAdapter(
+              child: CustomTextSearchField(),
             ),
-          ),
-          SliverToBoxAdapter(
-            child: FeaturedListView(),
-          ),
-          SliverToBoxAdapter(
-            child: SizedBox(
-              height: 20,
+            SliverToBoxAdapter(
+              child: SizedBox(
+                height: 15,
+              ),
             ),
-          ),
-          SliverToBoxAdapter(
-            child: BestSellerHeaderWidget(),
-          ),
-          SliverToBoxAdapter(
-            child: SizedBox(
-              height: 20,
+            SliverToBoxAdapter(
+              child: FeaturedListViewBuilder(),
             ),
-          ),
-          BestSellerItemsListBuilder(),
-        ],
+            SliverToBoxAdapter(
+              child: SizedBox(
+                height: 20,
+              ),
+            ),
+            SliverToBoxAdapter(
+              child: BestSellerHeaderWidget(),
+            ),
+            SliverToBoxAdapter(
+              child: SizedBox(
+                height: 20,
+              ),
+            ),
+            BestSellerItemsListBuilder(),
+          ],
+        ),
       ),
     );
   }
 }
-
-
-List<CartEntity> carts=[];

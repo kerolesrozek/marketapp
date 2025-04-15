@@ -37,4 +37,16 @@ class CartRepositoryImpl implements CartRepository {
       return left(Failures(errorMessage: e.toString()));
     }
   }
+
+  @override
+  Either<Failures, void> deleteCart({required CartEntity cartEntity}) {
+    try {
+      carts.remove(cartEntity);
+      return right(null);
+    } catch (e) {
+      log(' error in cart reposImple.deleteCart ${e.toString()}');
+
+      return left(Failures(errorMessage: e.toString()));
+    }
+  }
 }
