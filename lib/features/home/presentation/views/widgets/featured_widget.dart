@@ -2,7 +2,9 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:flutter_svg_provider/flutter_svg_provider.dart' as svg;
+import 'package:fruitesapp/core/app_routes.dart';
 import 'package:fruitesapp/features/products/domain/entities/product_entity.dart';
+import 'package:go_router/go_router.dart';
 import 'featured_button.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -12,59 +14,66 @@ class FeaturedWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(left: 10.0),
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(12),
-        child: SizedBox(
-          width: MediaQuery.sizeOf(context).width * 0.9,
-          // height: MediaQuery.sizeOf(context).height * 0.22,//ملهاش لازمه طالما اديت الليست نفسها ارتفاع
-          child: Stack(
-            clipBehavior: Clip.none,
-            children: [
-              Positioned(
-                  left: 0,
-                  bottom: 0,
-                  right: MediaQuery.sizeOf(context).width * 0.3,
-                  top: 0,
-                  child: CachedNetworkImage(
-                      fit: BoxFit.fill,
-                      imageUrl: productEntity.imagePath,
-                      errorWidget: (context, url, error) => Icon(Icons.error))),
-              Container(
-                padding: const EdgeInsets.only(
-                  right: 20,
-                ),
-                width: MediaQuery.sizeOf(context).width * 0.5,
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                    image: svg.Svg(
-                      'lib/assets/images/feature_image_stack2.svg',
-                    ),
-                    fit: BoxFit.fill,
+    return GestureDetector(
+      onTap: () {
+        GoRouter.of(context).push(AppRoutes.kproductDetailsView,
+            extra: productEntity);
+      },
+      child: Padding(
+        padding: const EdgeInsets.only(left: 10.0),
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(12),
+          child: SizedBox(
+            width: MediaQuery.sizeOf(context).width * 0.9,
+            // height: MediaQuery.sizeOf(context).height * 0.22,//ملهاش لازمه طالما اديت الليست نفسها ارتفاع
+            child: Stack(
+              clipBehavior: Clip.none,
+              children: [
+                Positioned(
+                    left: 0,
+                    bottom: 0,
+                    right: MediaQuery.sizeOf(context).width * 0.3,
+                    top: 0,
+                    child: CachedNetworkImage(
+                        fit: BoxFit.fill,
+                        imageUrl: productEntity.imagePath,
+                        errorWidget: (context, url, error) =>
+                            Icon(Icons.error))),
+                Container(
+                  padding: const EdgeInsets.only(
+                    right: 20,
                   ),
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Text(
-                      'عروض العيد',
-                      style: GoogleFonts.cairo(
-                          fontSize: 13,
-                          fontWeight: FontWeight.w400,
-                          color: Colors.white),
+                  width: MediaQuery.sizeOf(context).width * 0.5,
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image: svg.Svg(
+                        'lib/assets/images/feature_image_stack2.svg',
+                      ),
+                      fit: BoxFit.fill,
                     ),
-                    Text('خصم 25%',
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Text(
+                        'عروض العيد',
                         style: GoogleFonts.cairo(
-                            fontSize: 19,
-                            fontWeight: FontWeight.w700,
-                            color: Colors.white)),
-                    FeauteredButton()
-                  ],
-                ),
-              )
-            ],
+                            fontSize: 13,
+                            fontWeight: FontWeight.w400,
+                            color: Colors.white),
+                      ),
+                      Text('خصم 25%',
+                          style: GoogleFonts.cairo(
+                              fontSize: 19,
+                              fontWeight: FontWeight.w700,
+                              color: Colors.white)),
+                      FeauteredButton()
+                    ],
+                  ),
+                )
+              ],
+            ),
           ),
         ),
       ),
