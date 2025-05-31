@@ -26,7 +26,7 @@ class _HomeViewState extends State<HomeView> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body: SafeArea(child: screens[currentIndex]),
+      body: SafeArea(child: IndexedStack(index: currentIndex, children: screens)),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: currentIndex,
         onTap: (value) {

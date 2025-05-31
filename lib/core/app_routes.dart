@@ -1,4 +1,6 @@
+import 'package:fruitesapp/features/check_out/presentation/views/check_out_view.dart';
 import 'package:fruitesapp/features/home/presentation/views/product_detail_view.dart';
+import 'package:fruitesapp/features/home/presentation/views/product_review_view.dart';
 
 import '../features/auth/presentation/views/login_view.dart';
 import '../features/auth/presentation/views/register_view.dart';
@@ -15,9 +17,10 @@ class AppRoutes {
   static final kLoginview = '/kLoginview';
   static final kRegisterView = '/kRegisterView';
   static final kHomeView = '/kHomeView';
-
   static final kBestSellerView = '/kBestSellerView';
   static final kproductDetailsView = '/kproductDetailsView';
+  static final kProductReviewView = '/kProductReviewView';
+  static final kCheckOutView = '/kCheckOutView';
   static final router = GoRouter(
     routes: [
       GoRoute(
@@ -42,6 +45,12 @@ class AppRoutes {
       GoRoute(
           path: kproductDetailsView,
           builder: (context, state) => const ProductDetailView()),
+      GoRoute(
+          path: kProductReviewView,
+          builder: (context, state) => const ProductReviewView()),
+          GoRoute(
+          path: kCheckOutView,
+          builder: (context, state) => const CheckoutView()),
     ],
   );
 }

@@ -1,6 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:flutter_svg_provider/flutter_svg_provider.dart' as svg;
 import 'package:fruitesapp/core/app_routes.dart';
 import 'package:fruitesapp/features/products/domain/entities/product_entity.dart';
@@ -17,7 +16,7 @@ class FeaturedWidget extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         GoRouter.of(context).push(AppRoutes.kproductDetailsView,
-            extra: productEntity);
+            extra: productEntity,);
       },
       child: Padding(
         padding: const EdgeInsets.only(left: 10.0),

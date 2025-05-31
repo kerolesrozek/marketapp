@@ -1,7 +1,9 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:fruitesapp/core/app_routes.dart';
 import 'package:fruitesapp/features/products/domain/entities/product_entity.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class ProductBasicData extends StatelessWidget {
@@ -64,11 +66,7 @@ class ProductBasicData extends StatelessWidget {
               ),
               Spacer(),
               GestureDetector(
-                onTap: () {
-                  // cartEntity.count++;
-                  // BlocProvider.of<GetCartsCubit>(context)
-                  //     .getCarts();
-                },
+                onTap: () {},
                 child: SvgPicture.asset(
                   'lib/assets/images/plus_item_in_cart_view.svg',
                   width: 36,
@@ -79,7 +77,6 @@ class ProductBasicData extends StatelessWidget {
               ),
               Text(
                 '4',
-                // cartEntity.count.toString(),
                 style: GoogleFonts.cairo(
                     fontSize: 18, fontWeight: FontWeight.w700),
               ),
@@ -88,14 +85,7 @@ class ProductBasicData extends StatelessWidget {
               ),
               GestureDetector(
                 onTap: () {
-                  //   if (cartEntity.count == 0) {
-                  //     return;
-                  //   } else {
-                  //     cartEntity.count--;
-                  //     BlocProvider.of<GetCartsCubit>(context)
-                  //         .getCarts();
-                  //     return;
-                  //   }
+                  
                 },
                 child: SvgPicture.asset(
                   'lib/assets/images/minus_item_in_cart_view.svg',
@@ -132,13 +122,19 @@ class ProductBasicData extends StatelessWidget {
               SizedBox(
                 width: 8,
               ),
-              Text(
-                'المراجعه',
-                style: GoogleFonts.cairo(
-                    fontWeight: FontWeight.w700,
-                    color: Color(0xff1B5E37),
-                    decoration: TextDecoration.underline,
-                    decorationColor: Color(0xff1B5E37)),
+              GestureDetector(
+                onTap: () {
+                  GoRouter.of(context)
+                      .push(AppRoutes.kProductReviewView, extra: productEntity);
+                },
+                child: Text(
+                  'المراجعه',
+                  style: GoogleFonts.cairo(
+                      fontWeight: FontWeight.w700,
+                      color: Color(0xff1B5E37),
+                      decoration: TextDecoration.underline,
+                      decorationColor: Color(0xff1B5E37)),
+                ),
               ),
               SizedBox(
                 width: 8,

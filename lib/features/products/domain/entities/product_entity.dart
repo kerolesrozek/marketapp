@@ -1,8 +1,3 @@
-import 'dart:io';
-
-import 'review_entity.dart';
-
-
 class ProductEntity {
   final String name;
   final String description;

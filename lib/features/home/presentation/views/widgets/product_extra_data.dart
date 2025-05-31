@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_svg_provider/flutter_svg_provider.dart' as svg;
 import 'package:fruitesapp/features/products/domain/entities/product_entity.dart';
@@ -58,7 +57,7 @@ class ProductExtraData extends StatelessWidget {
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(12),
                   image: DecorationImage(image: svg.Svg(image))),
-              child: widget == null ? Text('') : widget)
+              child: widget ?? Text(''))
         ],
       ),
     );

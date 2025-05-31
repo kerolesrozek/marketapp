@@ -11,7 +11,7 @@ class FeaturedListView extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       height: MediaQuery.sizeOf(context).height * 0.22,
-      child: ListView.builder(
+      child: ListView.builder(      
         scrollDirection: Axis.horizontal,
         itemCount: featuredProducts.length,
         itemBuilder: (BuildContext context, int index) {

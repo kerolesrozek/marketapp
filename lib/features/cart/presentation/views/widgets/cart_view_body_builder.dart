@@ -1,9 +1,10 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fruitesapp/core/app_routes.dart';
 import 'package:fruitesapp/features/cart/presentation/cubit/get_carts_cubit/get_carts_cubit.dart';
 import 'package:fruitesapp/features/cart/presentation/views/widgets/cart_items_list_view.dart';
 import 'package:fruitesapp/features/on_boarding/presentayon/views/widgets/custom_button.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class CartViewBodyBuilder extends StatelessWidget {
@@ -23,7 +24,7 @@ class CartViewBodyBuilder extends StatelessWidget {
             }
             return totalPrice;
           }
-    
+
           return Stack(children: [
             Column(
               children: [
@@ -55,7 +56,10 @@ class CartViewBodyBuilder extends StatelessWidget {
                 right: 16,
                 left: 16,
                 child: CustomButton(
-                    title: 'الدفع ${calcTotalPrice()} جنيه', onPressed: () {})),
+                    title: 'الدفع ${calcTotalPrice()} جنيه',
+                    onPressed: () {
+                      GoRouter.of(context).push(AppRoutes.kCheckOutView);
+                    })),
           ]);
         } else if (state is GetCartsFailure) {
           return Center(
